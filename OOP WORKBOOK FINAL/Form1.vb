@@ -2,16 +2,8 @@
 Imports System.Linq
 
 Public Class Form1
-    Private homeLessonList As ComboBox
-    Private oopTopicList As ComboBox
-    Private oopTopicLabel As Label
-    Private homeSelectLessonLabel As Label
-    Private studentNameLabel As Label
-    Private classNameLabel As Label
-    Private previousLessonButton As Button
-    Private nextLessonButton As Button
-    Private practiceOutputButton As Button
     Private currentLessonNavigationIndex As Integer = -1
+    Private currentPracticeForm As Form
     Private ReadOnly lessonNavigationOrder As String() = {
         "Classes and Objects",
         "Encapsulation",
@@ -32,12 +24,14 @@ Public Class Form1
     }
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Text = "PFP101 - OBJECT ORIENTED PROGRAMMING             SONGALIA, MARK RYAN O.            SBIT-2E"
         Label1.Visible = True
         Label1.Text = "PFP101 - Object Oriented Programming"
         Label1.AutoSize = False
         Label1.TextAlign = ContentAlignment.MiddleCenter
         Label1.ForeColor = Color.White
         panelHome.Dock = DockStyle.Fill
+        Me.BackColor = Color.FromArgb(5, 14, 35)
         panelHome.BackColor = Color.FromArgb(5, 14, 35)
         IntroductionToolStripMenuItem.Text = "Week 1 : Orientation"
         ToolStripMenuItem2.Text = "Week 2 : Introduction to OOP"
@@ -58,109 +52,27 @@ Public Class Form1
         PresentationToolStripMenuItem1.Text = "Week 17 : Presentation"
         ToolStripMenuItem8.Text = "Week 18 : Final Examination"
         AnimationToolStripMenuItem.Text = "Week 19 : Animation"
-        ExitToolStripMenuItem1.Text = "Week 20 : Exit"
+        ExitToolStripMenuItem1.Text = "Week 21 : Exit"
         LessonsToolStripMenuItem.Visible = False
         LessonsToolStripMenuItem1.Visible = False
-        panelHome.BackgroundImageLayout = ImageLayout.Zoom
+        panelHome.BackgroundImageLayout = ImageLayout.Stretch
         MenuStrip1.ShowItemToolTips = True
         HelpToolStripMenuItem.ToolTipText = "Learn about the PFP101 Object Oriented Programming application."
-        InitializeHomeLessonMenu()
-    End Sub
-
-    Private Sub InitializeHomeLessonMenu()
-        If homeLessonList IsNot Nothing Then Return
-
-        homeLessonList = New ComboBox With {
-            .Name = "HomeLessonList",
-            .DropDownStyle = ComboBoxStyle.DropDownList,
-            .BackColor = Color.White,
-            .ForeColor = Color.FromArgb(18, 40, 72),
-            .Font = New Font("Segoe UI", 12.0!, FontStyle.Regular),
-            .FlatStyle = FlatStyle.Flat,
-            .MaxDropDownItems = 12,
-            .IntegralHeight = True,
-            .DropDownWidth = 760,
-            .Height = 44
-        }
-        homeLessonList.Items.AddRange(New Object() {
-            "Select a lesson...",
-            "Week 1 : Orientation",
-            "Week 2 : Introduction to OOP",
-            "Week 3 : Getting Started With Microsoft Visual Basic",
-            "Week 4 : Planning Application Designing Interface",
-            "Week 5 : Data Handling",
-            "Week 6 : The Selection and Repetition Structure",
-            "Week 7 : Arrays",
-            "Week 8 : Working With Control Properties",
-            "Week 9 : MIDTERMS",
-            "Week 10 : Debugging and Tracing",
-            "Week 11 : Working with .NET Framework and Multi Document Interface",
-            "Week 12 : Working with .NET Framework and Multi Document Interface",
-            "Week 13 : Database Connection",
-            "Week 14 : Database Connection",
-            "Week 15 : Developing Data Driven Applications",
-            "Week 16 : Presentation",
-            "Week 17 : Presentation",
-            "Week 18 : Final Examination",
-            "Week 19 : Animation",
-            "Week 20 : Exit"
-        })
-        homeSelectLessonLabel = New Label With {
-            .Name = "HomeSelectLessonLabel",
-            .Text = "Select a Lesson",
-            .Font = New Font("Segoe UI", 16.0!, FontStyle.Bold),
-            .ForeColor = Color.White,
-            .TextAlign = ContentAlignment.MiddleCenter
-        }
-        studentNameLabel = New Label With {
-            .Name = "StudentNameLabel",
-            .Text = "MARK RYAN SONGALIA",
-            .Font = New Font("Segoe UI", 13.0!, FontStyle.Bold),
-            .ForeColor = Color.White,
-            .TextAlign = ContentAlignment.MiddleLeft
-        }
-        classNameLabel = New Label With {
-            .Name = "ClassNameLabel",
-            .Text = "SBIT-2E",
-            .Font = New Font("Segoe UI", 13.0!, FontStyle.Bold),
-            .ForeColor = Color.White,
-            .TextAlign = ContentAlignment.MiddleRight
-        }
-        oopTopicLabel = New Label With {
-            .Name = "OopTopicLabel",
-            .Text = "Introduction to OOP topics",
-            .Font = New Font("Segoe UI", 12.0!, FontStyle.Bold),
-            .ForeColor = Color.White,
-            .TextAlign = ContentAlignment.MiddleCenter,
-            .Visible = False
-        }
-        oopTopicList = New ComboBox With {
-            .Name = "OopTopicList",
-            .DropDownStyle = ComboBoxStyle.DropDownList,
-            .BackColor = Color.White,
-            .ForeColor = Color.FromArgb(18, 40, 72),
-            .Font = New Font("Segoe UI", 11.0!, FontStyle.Regular),
-            .FlatStyle = FlatStyle.Flat,
-            .DropDownWidth = 420,
-            .Visible = False
-        }
-        oopTopicList.Items.AddRange(New Object() {
-            "Select an OOP topic...",
-            "Classes and Objects",
-            "Encapsulation",
-            "Inheritance",
-            "Polymorphism"`x`
-        })
-        AddHandler homeLessonList.SelectedIndexChanged, AddressOf HomeLessonList_SelectedIndexChanged
-        AddHandler oopTopicList.SelectedIndexChanged, AddressOf OopTopicList_SelectedIndexChanged
-        panelHome.Controls.Add(homeSelectLessonLabel)
-        panelHome.Controls.Add(homeLessonList)
-        panelHome.Controls.Add(oopTopicLabel)
-        panelHome.Controls.Add(oopTopicList)
-        panelHome.Controls.Add(studentNameLabel)
-        panelHome.Controls.Add(classNameLabel)
         homeLessonList.SelectedIndex = 0
         oopTopicList.SelectedIndex = 0
+        homeSelectLessonLabel.Visible = True
+        homeLessonList.Visible = True
+        oopTopicLabel.Visible = False
+        oopTopicList.Visible = False
+        studentNameLabel.Visible = False
+        classNameLabel.Visible = False
+        lessonDefinitionBox.Visible = False
+        lessonReferenceBox.Visible = False
+        lessonPlaceholderLabel.Visible = False
+        backButton.Visible = False
+        previousLessonButton.Visible = False
+        practiceOutputButton.Visible = False
+        nextLessonButton.Visible = False
         UpdateHomeLayout()
     End Sub
 
@@ -198,11 +110,12 @@ Public Class Form1
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         UpdateHomeLayout()
+        UpdateLessonContentLayout()
         UpdateLessonNavigationLayout()
         If panelHome IsNot Nothing Then panelHome.Invalidate()
     End Sub
 
-    Private Sub HomeLessonList_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub HomeLessonList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles homeLessonList.SelectedIndexChanged
         oopTopicLabel.Visible = False
         oopTopicList.Visible = False
         Select Case homeLessonList.SelectedIndex - 1
@@ -251,11 +164,13 @@ Public Class Form1
             Case 18
                 AnimationToolStripMenuItem.PerformClick()
             Case 19
+                DataDrivenWeek15ToolStripMenuItem_Click(Me, EventArgs.Empty)
+            Case 20
                 ExItToolStripMenuItem_Click(Me, EventArgs.Empty)
         End Select
     End Sub
 
-    Private Sub OopTopicList_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub OopTopicList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles oopTopicList.SelectedIndexChanged
         Select Case oopTopicList.SelectedIndex
             Case 1
                 ClassesAndObjectsToolStripMenuItem_Click(Me, EventArgs.Empty)
@@ -270,145 +185,54 @@ Public Class Form1
 
     Private Sub ShowLesson(title As String, definition As String, referenceCode As String, practiceForm As Form, Optional isTopicOutline As Boolean = False, Optional includePracticeButton As Boolean = True, Optional placeholderOnly As Boolean = False)
         currentLessonNavigationIndex = Array.IndexOf(lessonNavigationOrder, title)
-        For Each control As Control In panelHome.Controls.Cast(Of Control)().ToList()
-            If control.Name = "LessonDefinition" OrElse control.Name = "ReferenceCode" OrElse control.Name = "LessonPlaceholder" OrElse control.Name = "PracticeOutputButton" OrElse control.Name = "BackButton" OrElse control.Name = "PreviousLessonButton" OrElse control.Name = "NextLessonButton" Then
-                panelHome.Controls.Remove(control)
-                control.Dispose()
-            End If
-        Next
-        previousLessonButton = Nothing
-        nextLessonButton = Nothing
-        practiceOutputButton = Nothing
+        currentPracticeForm = If(includePracticeButton, practiceForm, Nothing)
 
-        For Each control As Control In panelHome.Controls.Cast(Of Control)().ToList()
-            If control IsNot MenuStrip1 Then
-                control.Visible = False
-            End If
-        Next
+        Label1.Visible = False
+        homeSelectLessonLabel.Visible = False
+        homeLessonList.Visible = False
+        oopTopicLabel.Visible = False
+        oopTopicList.Visible = False
+        studentNameLabel.Visible = False
+        classNameLabel.Visible = False
 
+        lessonDefinitionBox.Visible = Not placeholderOnly
+        lessonReferenceBox.Visible = Not placeholderOnly
+        lessonPlaceholderLabel.Visible = placeholderOnly
         If placeholderOnly Then
-            Dim placeholder As New Label With {
-                .Name = "LessonPlaceholder",
-                .Text = title & Environment.NewLine & Environment.NewLine & "Content coming soon",
-                .Font = New Font("Segoe UI", 18.0!, FontStyle.Bold),
-                .BackColor = Color.FromArgb(18, 40, 72),
-                .ForeColor = Color.White,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .Location = New Point(80, 45),
-                .Size = New Size(Math.Max(400, panelHome.ClientSize.Width - 160), Math.Max(190, panelHome.ClientSize.Height - 130)),
-                .Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-            }
-            panelHome.Controls.Add(placeholder)
-            placeholder.BringToFront()
+            lessonPlaceholderLabel.Text = title & Environment.NewLine & Environment.NewLine & "Content coming soon"
+            lessonPlaceholderLabel.BringToFront()
         Else
-            Dim definitionBox As New RichTextBox With {
-                .Name = "LessonDefinition",
-                .ReadOnly = True,
-                .BorderStyle = BorderStyle.None,
-                .ScrollBars = RichTextBoxScrollBars.Vertical,
-                .BackColor = Color.FromArgb(18, 40, 72),
-                .Font = New Font("Segoe UI", 13.0!, FontStyle.Regular),
-                .ForeColor = Color.White,
-                .Text = title & Environment.NewLine & Environment.NewLine & definition,
-                .Location = New Point(80, 45),
-                .Size = New Size(Math.Max(400, panelHome.ClientSize.Width - 160), 190),
-                .Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-            }
-            definitionBox.SelectAll()
-            definitionBox.SelectionAlignment = HorizontalAlignment.Center
-            definitionBox.DeselectAll()
-
-            Dim codeBox As New TextBox With {
-                .Name = "ReferenceCode",
-                .Multiline = True,
-                .ReadOnly = True,
-                .ScrollBars = ScrollBars.Both,
-                .WordWrap = isTopicOutline,
-                .Font = If(isTopicOutline, New Font("Segoe UI", 11.0!), New Font("Consolas", 10.0!)),
-                .BackColor = Color.FromArgb(11, 27, 49),
-                .ForeColor = Color.White,
-                .Text = referenceCode,
-                .Location = New Point(80, 250),
-                .Size = New Size(Math.Max(400, panelHome.ClientSize.Width - 160), Math.Max(160, panelHome.ClientSize.Height - 330)),
-                .Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-            }
-
-            panelHome.Controls.Add(definitionBox)
-            panelHome.Controls.Add(codeBox)
-            definitionBox.BringToFront()
-            codeBox.BringToFront()
+            lessonDefinitionBox.Text = title & Environment.NewLine & Environment.NewLine & definition
+            lessonDefinitionBox.SelectAll()
+            lessonDefinitionBox.SelectionAlignment = HorizontalAlignment.Center
+            lessonDefinitionBox.DeselectAll()
+            lessonReferenceBox.Text = referenceCode
+            lessonReferenceBox.WordWrap = isTopicOutline
+            lessonReferenceBox.Font = If(isTopicOutline, New Font("Segoe UI", 11.0!), New Font("Consolas", 10.0!))
+            lessonDefinitionBox.BringToFront()
+            lessonReferenceBox.BringToFront()
         End If
 
-        Dim backButton As New Button With {
-            .Name = "BackButton",
-            .Text = "Back",
-            .Font = New Font("Segoe UI", 10.0!, FontStyle.Bold),
-            .BackColor = Color.FromArgb(27, 75, 125),
-            .ForeColor = Color.White,
-            .FlatStyle = FlatStyle.Flat,
-            .Size = New Size(110, 42),
-            .Location = New Point(24, panelHome.ClientSize.Height - 58),
-            .Anchor = AnchorStyles.Bottom Or AnchorStyles.Left,
-            .UseVisualStyleBackColor = True
-        }
-        AddHandler backButton.Click, Sub(sender, e) ReturnToHome()
-        panelHome.Controls.Add(backButton)
+        backButton.Visible = True
+        previousLessonButton.Visible = True
+        nextLessonButton.Visible = True
+        practiceOutputButton.Visible = includePracticeButton
+        previousLessonButton.Enabled = FindNavigableLessonIndex(currentLessonNavigationIndex - 1, -1) >= 0
+        nextLessonButton.Enabled = FindNavigableLessonIndex(currentLessonNavigationIndex + 1, 1) >= 0
         backButton.BringToFront()
-
-        previousLessonButton = New Button With {
-            .Name = "PreviousLessonButton",
-            .Text = "◀",
-            .Font = New Font("Segoe UI Symbol", 15.0!, FontStyle.Bold),
-            .BackColor = Color.FromArgb(27, 75, 125),
-            .ForeColor = Color.White,
-            .FlatStyle = FlatStyle.Flat,
-            .Size = New Size(52, 42),
-            .Anchor = AnchorStyles.Bottom,
-            .UseVisualStyleBackColor = True,
-            .Enabled = FindNavigableLessonIndex(currentLessonNavigationIndex - 1, -1) >= 0
-        }
-        AddHandler previousLessonButton.Click, Sub(sender, e) NavigateLesson(-1)
-        panelHome.Controls.Add(previousLessonButton)
-
-        nextLessonButton = New Button With {
-            .Name = "NextLessonButton",
-            .Text = "▶",
-            .Font = New Font("Segoe UI Symbol", 15.0!, FontStyle.Bold),
-            .BackColor = Color.FromArgb(27, 75, 125),
-            .ForeColor = Color.White,
-            .FlatStyle = FlatStyle.Flat,
-            .Size = New Size(52, 42),
-            .Anchor = AnchorStyles.Bottom,
-            .UseVisualStyleBackColor = True,
-            .Enabled = FindNavigableLessonIndex(currentLessonNavigationIndex + 1, 1) >= 0
-        }
-        AddHandler nextLessonButton.Click, Sub(sender, e) NavigateLesson(1)
-        panelHome.Controls.Add(nextLessonButton)
-
-        If includePracticeButton Then
-            practiceOutputButton = New Button With {
-                .Name = "PracticeOutputButton",
-                .Text = "Practice Output",
-                .Font = New Font("Segoe UI", 11.0!, FontStyle.Bold),
-                .BackColor = Color.FromArgb(27, 75, 125),
-                .ForeColor = Color.White,
-                .FlatStyle = FlatStyle.Flat,
-                .Size = New Size(180, 42),
-                .Anchor = AnchorStyles.Bottom,
-                .UseVisualStyleBackColor = True
-            }
-            AddHandler practiceOutputButton.Click, Sub(sender, e)
-                                                 Using practiceForm
-                                                     practiceForm.ShowDialog(Me)
-                                                 End Using
-                                             End Sub
-            panelHome.Controls.Add(practiceOutputButton)
-        End If
-
-        UpdateLessonNavigationLayout()
         previousLessonButton.BringToFront()
-        If practiceOutputButton IsNot Nothing Then practiceOutputButton.BringToFront()
+        If includePracticeButton Then practiceOutputButton.BringToFront()
         nextLessonButton.BringToFront()
+
+        UpdateLessonContentLayout()
+        UpdateLessonNavigationLayout()
+    End Sub
+
+    Private Sub UpdateLessonContentLayout()
+        Dim contentWidth As Integer = Math.Max(300, panelHome.ClientSize.Width - 160)
+        lessonDefinitionBox.SetBounds(80, 45, contentWidth, 190)
+        lessonReferenceBox.SetBounds(80, 250, contentWidth, Math.Max(160, panelHome.ClientSize.Height - 330))
+        lessonPlaceholderLabel.SetBounds(80, 45, contentWidth, Math.Max(190, panelHome.ClientSize.Height - 130))
     End Sub
 
     Private Sub UpdateLessonNavigationLayout()
@@ -416,13 +240,14 @@ Public Class Form1
 
         Dim spacing As Integer = 12
         Dim arrowWidth As Integer = previousLessonButton.Width
-        Dim practiceWidth As Integer = If(practiceOutputButton Is Nothing, 0, practiceOutputButton.Width)
-        Dim groupWidth As Integer = arrowWidth * 2 + spacing * If(practiceOutputButton Is Nothing, 1, 2) + practiceWidth
+        Dim practiceWidth As Integer = If(practiceOutputButton.Visible, practiceOutputButton.Width, 0)
+        Dim groupWidth As Integer = arrowWidth * 2 + spacing * If(practiceOutputButton.Visible, 2, 1) + practiceWidth
         Dim groupLeft As Integer = Math.Max(0, (panelHome.ClientSize.Width - groupWidth) \ 2)
         Dim buttonTop As Integer = panelHome.ClientSize.Height - previousLessonButton.Height - 16
 
+        backButton.Location = New Point(24, buttonTop)
         previousLessonButton.Location = New Point(groupLeft, buttonTop)
-        If practiceOutputButton IsNot Nothing Then
+        If practiceOutputButton.Visible Then
             practiceOutputButton.Location = New Point(groupLeft + arrowWidth + spacing, buttonTop)
             nextLessonButton.Location = New Point(practiceOutputButton.Right + spacing, buttonTop)
         Else
@@ -485,26 +310,47 @@ Public Class Form1
     End Sub
 
     Private Sub ReturnToHome()
-        For Each control As Control In panelHome.Controls.Cast(Of Control)().ToList()
-            If control IsNot MenuStrip1 AndAlso control IsNot Label1 AndAlso control IsNot homeLessonList AndAlso control IsNot homeSelectLessonLabel AndAlso control IsNot oopTopicLabel AndAlso control IsNot oopTopicList AndAlso control IsNot studentNameLabel AndAlso control IsNot classNameLabel Then
-                panelHome.Controls.Remove(control)
-                control.Dispose()
-            End If
-        Next
-        previousLessonButton = Nothing
-        nextLessonButton = Nothing
-        practiceOutputButton = Nothing
+        currentLessonNavigationIndex = -1
+        currentPracticeForm = Nothing
         Label1.Visible = True
         homeSelectLessonLabel.Visible = True
         homeLessonList.Visible = True
         oopTopicLabel.Visible = False
         oopTopicList.Visible = False
-        studentNameLabel.Visible = True
-        classNameLabel.Visible = True
+        studentNameLabel.Visible = False
+        classNameLabel.Visible = False
         homeLessonList.SelectedIndex = 0
         oopTopicList.SelectedIndex = 0
+        lessonDefinitionBox.Visible = False
+        lessonReferenceBox.Visible = False
+        lessonPlaceholderLabel.Visible = False
+        backButton.Visible = False
+        previousLessonButton.Visible = False
+        practiceOutputButton.Visible = False
+        nextLessonButton.Visible = False
         UpdateHomeLayout()
         homeLessonList.BringToFront()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles backButton.Click
+        ReturnToHome()
+    End Sub
+
+    Private Sub PreviousLessonButton_Click(sender As Object, e As EventArgs) Handles previousLessonButton.Click
+        NavigateLesson(-1)
+    End Sub
+
+    Private Sub NextLessonButton_Click(sender As Object, e As EventArgs) Handles nextLessonButton.Click
+        NavigateLesson(1)
+    End Sub
+
+    Private Sub PracticeOutputButton_Click(sender As Object, e As EventArgs) Handles practiceOutputButton.Click
+        If currentPracticeForm IsNot Nothing Then
+            Using currentPracticeForm
+                currentPracticeForm.ShowDialog(Me)
+            End Using
+            currentPracticeForm = Nothing
+        End If
     End Sub
 
     Private Sub ClassesAndObjectsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClassesAndObjectsToolStripMenuItem.Click
@@ -690,5 +536,9 @@ Public Class Form1
 
     Private Sub DataDrivenWeek15ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DevelopingDataDrivenApplicationToolStripMenuItem.Click
         ShowLesson("Week 15 - Developing Data-Driven Applications: Updating Data Sources", "", "", Nothing, True, False, True)
+    End Sub
+
+    Private Sub ExitToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem1.Click
+
     End Sub
 End Class

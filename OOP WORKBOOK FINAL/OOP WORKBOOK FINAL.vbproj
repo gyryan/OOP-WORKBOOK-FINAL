@@ -173,5 +173,11 @@
   <ItemGroup>
     <None Include="Resources\High-Resolution Blue Tech Background for PC &amp; Software Presentation Design.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAME .png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

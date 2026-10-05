@@ -55,6 +55,20 @@ Partial Class Form1
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExItToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SBIT2EToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.homeSelectLessonLabel = New System.Windows.Forms.Label()
+        Me.homeLessonList = New System.Windows.Forms.ComboBox()
+        Me.oopTopicLabel = New System.Windows.Forms.Label()
+        Me.oopTopicList = New System.Windows.Forms.ComboBox()
+        Me.studentNameLabel = New System.Windows.Forms.Label()
+        Me.classNameLabel = New System.Windows.Forms.Label()
+        Me.lessonDefinitionBox = New System.Windows.Forms.RichTextBox()
+        Me.lessonReferenceBox = New System.Windows.Forms.TextBox()
+        Me.lessonPlaceholderLabel = New System.Windows.Forms.Label()
+        Me.backButton = New System.Windows.Forms.Button()
+        Me.previousLessonButton = New System.Windows.Forms.Button()
+        Me.practiceOutputButton = New System.Windows.Forms.Button()
+        Me.nextLessonButton = New System.Windows.Forms.Button()
+        Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.panelHome.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -62,10 +76,23 @@ Partial Class Form1
         'panelHome
         '
         Me.panelHome.BackColor = System.Drawing.Color.Transparent
-        Me.panelHome.BackgroundImage = Global.OOP_WORKBOOK_FINAL.My.Resources.Resources.High_Resolution_Blue_Tech_Background_for_PC___Software_Presentation_Design
+        Me.panelHome.BackgroundImage = Global.OOP_WORKBOOK_FINAL.My.Resources.Resources.NAME
         Me.panelHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.panelHome.Controls.Add(Me.Label1)
         Me.panelHome.Controls.Add(Me.MenuStrip1)
+        Me.panelHome.Controls.Add(Me.homeSelectLessonLabel)
+        Me.panelHome.Controls.Add(Me.homeLessonList)
+        Me.panelHome.Controls.Add(Me.oopTopicLabel)
+        Me.panelHome.Controls.Add(Me.oopTopicList)
+        Me.panelHome.Controls.Add(Me.studentNameLabel)
+        Me.panelHome.Controls.Add(Me.classNameLabel)
+        Me.panelHome.Controls.Add(Me.lessonDefinitionBox)
+        Me.panelHome.Controls.Add(Me.lessonReferenceBox)
+        Me.panelHome.Controls.Add(Me.lessonPlaceholderLabel)
+        Me.panelHome.Controls.Add(Me.backButton)
+        Me.panelHome.Controls.Add(Me.previousLessonButton)
+        Me.panelHome.Controls.Add(Me.practiceOutputButton)
+        Me.panelHome.Controls.Add(Me.nextLessonButton)
         Me.panelHome.Location = New System.Drawing.Point(-41, -2)
         Me.panelHome.Name = "panelHome"
         Me.panelHome.Size = New System.Drawing.Size(1660, 684)
@@ -107,7 +134,7 @@ Partial Class Form1
         '
         'LessonsToolStripMenuItem1
         '
-        Me.LessonsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IntroductionToolStripMenuItem, Me.ToolStripMenuItem2, Me.APPLICATIONSANDDESIGNINGINTERFACESToolStripMenuItem, Me.ToolStripMenuItem3, Me.DATAHANDLINGToolStripMenuItem, Me.TheSelectionAndRepetitionStructureToolStripMenuItem, Me.ARRAYSToolStripMenuItem, Me.WorkingWithControlsAndPropertiesToolStripMenuItem, Me.ToolStripMenuItem4, Me.DebuggingAndTracingToolStripMenuItem, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.DatabaseConnectionToolStripMenuItem, Me.ToolStripMenuItem7, Me.DevelopingDataDrivenApplicationToolStripMenuItem, Me.PresentationToolStripMenuItem, Me.PresentationToolStripMenuItem1, Me.ToolStripMenuItem8, Me.AnimationToolStripMenuItem, Me.ExitToolStripMenuItem1})
+        Me.LessonsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IntroductionToolStripMenuItem, Me.ToolStripMenuItem2, Me.APPLICATIONSANDDESIGNINGINTERFACESToolStripMenuItem, Me.ToolStripMenuItem3, Me.DATAHANDLINGToolStripMenuItem, Me.TheSelectionAndRepetitionStructureToolStripMenuItem, Me.ARRAYSToolStripMenuItem, Me.WorkingWithControlsAndPropertiesToolStripMenuItem, Me.ToolStripMenuItem4, Me.DebuggingAndTracingToolStripMenuItem, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.DatabaseConnectionToolStripMenuItem, Me.ToolStripMenuItem7, Me.DevelopingDataDrivenApplicationToolStripMenuItem, Me.PresentationToolStripMenuItem, Me.PresentationToolStripMenuItem1, Me.ToolStripMenuItem8, Me.AnimationToolStripMenuItem, Me.ExitToolStripMenuItem1, Me.ExitToolStripMenuItem2})
         Me.LessonsToolStripMenuItem1.Name = "LessonsToolStripMenuItem1"
         Me.LessonsToolStripMenuItem1.Size = New System.Drawing.Size(73, 24)
         Me.LessonsToolStripMenuItem1.Text = "Lessons"
@@ -128,25 +155,25 @@ Partial Class Form1
         'ClassesAndObjectsToolStripMenuItem
         '
         Me.ClassesAndObjectsToolStripMenuItem.Name = "ClassesAndObjectsToolStripMenuItem"
-        Me.ClassesAndObjectsToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.ClassesAndObjectsToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.ClassesAndObjectsToolStripMenuItem.Text = "Classes and Objects"
         '
         'EncapsulationToolStripMenuItem
         '
         Me.EncapsulationToolStripMenuItem.Name = "EncapsulationToolStripMenuItem"
-        Me.EncapsulationToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.EncapsulationToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.EncapsulationToolStripMenuItem.Text = "Encapsulation"
         '
         'InheritanceToolStripMenuItem
         '
         Me.InheritanceToolStripMenuItem.Name = "InheritanceToolStripMenuItem"
-        Me.InheritanceToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.InheritanceToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.InheritanceToolStripMenuItem.Text = "Inheritance"
         '
         'PolymorphismToolStripMenuItem
         '
         Me.PolymorphismToolStripMenuItem.Name = "PolymorphismToolStripMenuItem"
-        Me.PolymorphismToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
+        Me.PolymorphismToolStripMenuItem.Size = New System.Drawing.Size(222, 26)
         Me.PolymorphismToolStripMenuItem.Text = "Polymorphism"
         '
         'APPLICATIONSANDDESIGNINGINTERFACESToolStripMenuItem
@@ -255,7 +282,7 @@ Partial Class Form1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
         Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(515, 26)
-        Me.ExitToolStripMenuItem1.Text = "20. Exit"
+        Me.ExitToolStripMenuItem1.Text = "21. Exit"
         '
         'HelpToolStripMenuItem
         '
@@ -275,6 +302,182 @@ Partial Class Form1
         Me.SBIT2EToolStripMenuItem.Size = New System.Drawing.Size(74, 24)
         Me.SBIT2EToolStripMenuItem.Text = "SBIT-2E"
         '
+        'homeSelectLessonLabel
+        '
+        Me.homeSelectLessonLabel.BackColor = System.Drawing.Color.Transparent
+        Me.homeSelectLessonLabel.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.homeSelectLessonLabel.ForeColor = System.Drawing.Color.White
+        Me.homeSelectLessonLabel.Location = New System.Drawing.Point(0, 0)
+        Me.homeSelectLessonLabel.Name = "homeSelectLessonLabel"
+        Me.homeSelectLessonLabel.Size = New System.Drawing.Size(760, 34)
+        Me.homeSelectLessonLabel.TabIndex = 3
+        Me.homeSelectLessonLabel.Text = "Select a Lesson"
+        Me.homeSelectLessonLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'homeLessonList
+        '
+        Me.homeLessonList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.homeLessonList.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.homeLessonList.FormattingEnabled = True
+        Me.homeLessonList.Items.AddRange(New Object() {"Select a lesson...", "Week 1 : Orientation", "Week 2 : Introduction to OOP", "Week 3 : Getting Started With Microsoft Visual Basic", "Week 4 : Planning Application Designing Interface", "Week 5 : Data Handling", "Week 6 : The Selection and Repetition Structure", "Week 7 : Arrays", "Week 8 : Working With Control Properties", "Week 9 : MIDTERMS", "Week 10 : Debugging and Tracing", "Week 11 : Working with .NET Framework and Multi Document Interface", "Week 12 : Working with .NET Framework and Multi Document Interface", "Week 13 : Database Connection", "Week 14 : Database Connection", "Week 15 : Developing Data Driven Applications", "Week 16 : Presentation", "Week 17 : Presentation", "Week 18 : Final Examination", "Week 19 : Animation", "Week 20 : Data Driven", "Week 21 : Exit"})
+        Me.homeLessonList.Location = New System.Drawing.Point(0, 0)
+        Me.homeLessonList.Name = "homeLessonList"
+        Me.homeLessonList.Size = New System.Drawing.Size(760, 36)
+        Me.homeLessonList.TabIndex = 4
+        '
+        'oopTopicLabel
+        '
+        Me.oopTopicLabel.BackColor = System.Drawing.Color.Transparent
+        Me.oopTopicLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.oopTopicLabel.ForeColor = System.Drawing.Color.White
+        Me.oopTopicLabel.Location = New System.Drawing.Point(0, 0)
+        Me.oopTopicLabel.Name = "oopTopicLabel"
+        Me.oopTopicLabel.Size = New System.Drawing.Size(760, 28)
+        Me.oopTopicLabel.TabIndex = 5
+        Me.oopTopicLabel.Text = "Introduction to OOP topics"
+        Me.oopTopicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.oopTopicLabel.Visible = False
+        '
+        'oopTopicList
+        '
+        Me.oopTopicList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.oopTopicList.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.oopTopicList.FormattingEnabled = True
+        Me.oopTopicList.Items.AddRange(New Object() {"Select an OOP topic...", "Classes and Objects", "Encapsulation", "Inheritance", "Polymorphism"})
+        Me.oopTopicList.Location = New System.Drawing.Point(0, 0)
+        Me.oopTopicList.Name = "oopTopicList"
+        Me.oopTopicList.Size = New System.Drawing.Size(760, 33)
+        Me.oopTopicList.TabIndex = 6
+        Me.oopTopicList.Visible = False
+        '
+        'studentNameLabel
+        '
+        Me.studentNameLabel.BackColor = System.Drawing.Color.Transparent
+        Me.studentNameLabel.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.studentNameLabel.ForeColor = System.Drawing.Color.White
+        Me.studentNameLabel.Location = New System.Drawing.Point(0, 0)
+        Me.studentNameLabel.Name = "studentNameLabel"
+        Me.studentNameLabel.Size = New System.Drawing.Size(420, 34)
+        Me.studentNameLabel.TabIndex = 7
+        Me.studentNameLabel.Text = "MARK RYAN SONGALIA"
+        Me.studentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'classNameLabel
+        '
+        Me.classNameLabel.BackColor = System.Drawing.Color.Transparent
+        Me.classNameLabel.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.classNameLabel.ForeColor = System.Drawing.Color.White
+        Me.classNameLabel.Location = New System.Drawing.Point(0, 0)
+        Me.classNameLabel.Name = "classNameLabel"
+        Me.classNameLabel.Size = New System.Drawing.Size(420, 34)
+        Me.classNameLabel.TabIndex = 8
+        Me.classNameLabel.Text = "SBIT-2E"
+        Me.classNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lessonDefinitionBox
+        '
+        Me.lessonDefinitionBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.lessonDefinitionBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lessonDefinitionBox.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.lessonDefinitionBox.ForeColor = System.Drawing.Color.White
+        Me.lessonDefinitionBox.Location = New System.Drawing.Point(80, 45)
+        Me.lessonDefinitionBox.Name = "lessonDefinitionBox"
+        Me.lessonDefinitionBox.ReadOnly = True
+        Me.lessonDefinitionBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
+        Me.lessonDefinitionBox.Size = New System.Drawing.Size(1500, 190)
+        Me.lessonDefinitionBox.TabIndex = 9
+        Me.lessonDefinitionBox.Text = ""
+        Me.lessonDefinitionBox.Visible = False
+        '
+        'lessonReferenceBox
+        '
+        Me.lessonReferenceBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.lessonReferenceBox.Font = New System.Drawing.Font("Consolas", 10.0!)
+        Me.lessonReferenceBox.ForeColor = System.Drawing.Color.White
+        Me.lessonReferenceBox.Location = New System.Drawing.Point(80, 250)
+        Me.lessonReferenceBox.Multiline = True
+        Me.lessonReferenceBox.Name = "lessonReferenceBox"
+        Me.lessonReferenceBox.ReadOnly = True
+        Me.lessonReferenceBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.lessonReferenceBox.Size = New System.Drawing.Size(1500, 350)
+        Me.lessonReferenceBox.TabIndex = 10
+        Me.lessonReferenceBox.Visible = False
+        Me.lessonReferenceBox.WordWrap = False
+        '
+        'lessonPlaceholderLabel
+        '
+        Me.lessonPlaceholderLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(72, Byte), Integer))
+        Me.lessonPlaceholderLabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.lessonPlaceholderLabel.ForeColor = System.Drawing.Color.White
+        Me.lessonPlaceholderLabel.Location = New System.Drawing.Point(80, 45)
+        Me.lessonPlaceholderLabel.Name = "lessonPlaceholderLabel"
+        Me.lessonPlaceholderLabel.Size = New System.Drawing.Size(1500, 500)
+        Me.lessonPlaceholderLabel.TabIndex = 11
+        Me.lessonPlaceholderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lessonPlaceholderLabel.Visible = False
+        '
+        'backButton
+        '
+        Me.backButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(125, Byte), Integer))
+        Me.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.backButton.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.backButton.ForeColor = System.Drawing.Color.White
+        Me.backButton.Location = New System.Drawing.Point(24, 620)
+        Me.backButton.Name = "backButton"
+        Me.backButton.Size = New System.Drawing.Size(110, 42)
+        Me.backButton.TabIndex = 12
+        Me.backButton.Text = "Back"
+        Me.backButton.UseVisualStyleBackColor = False
+        Me.backButton.Visible = False
+        '
+        'previousLessonButton
+        '
+        Me.previousLessonButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(125, Byte), Integer))
+        Me.previousLessonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.previousLessonButton.Font = New System.Drawing.Font("Segoe UI Symbol", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.previousLessonButton.ForeColor = System.Drawing.Color.White
+        Me.previousLessonButton.Location = New System.Drawing.Point(530, 620)
+        Me.previousLessonButton.Name = "previousLessonButton"
+        Me.previousLessonButton.Size = New System.Drawing.Size(52, 42)
+        Me.previousLessonButton.TabIndex = 13
+        Me.previousLessonButton.Text = "◀"
+        Me.previousLessonButton.UseVisualStyleBackColor = False
+        Me.previousLessonButton.Visible = False
+        '
+        'practiceOutputButton
+        '
+        Me.practiceOutputButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(125, Byte), Integer))
+        Me.practiceOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.practiceOutputButton.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.practiceOutputButton.ForeColor = System.Drawing.Color.White
+        Me.practiceOutputButton.Location = New System.Drawing.Point(594, 620)
+        Me.practiceOutputButton.Name = "practiceOutputButton"
+        Me.practiceOutputButton.Size = New System.Drawing.Size(180, 42)
+        Me.practiceOutputButton.TabIndex = 14
+        Me.practiceOutputButton.Text = "Practice Output"
+        Me.practiceOutputButton.UseVisualStyleBackColor = False
+        Me.practiceOutputButton.Visible = False
+        '
+        'nextLessonButton
+        '
+        Me.nextLessonButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(125, Byte), Integer))
+        Me.nextLessonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.nextLessonButton.Font = New System.Drawing.Font("Segoe UI Symbol", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.nextLessonButton.ForeColor = System.Drawing.Color.White
+        Me.nextLessonButton.Location = New System.Drawing.Point(786, 620)
+        Me.nextLessonButton.Name = "nextLessonButton"
+        Me.nextLessonButton.Size = New System.Drawing.Size(52, 42)
+        Me.nextLessonButton.TabIndex = 15
+        Me.nextLessonButton.Text = "▶"
+        Me.nextLessonButton.UseVisualStyleBackColor = False
+        Me.nextLessonButton.Visible = False
+        '
+        'ExitToolStripMenuItem2
+        '
+        Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
+        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(515, 26)
+        Me.ExitToolStripMenuItem2.Text = "21.Exit"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -292,6 +495,19 @@ Partial Class Form1
 
     End Sub
 
+    Friend WithEvents homeSelectLessonLabel As Label
+    Friend WithEvents homeLessonList As ComboBox
+    Friend WithEvents oopTopicLabel As Label
+    Friend WithEvents oopTopicList As ComboBox
+    Friend WithEvents studentNameLabel As Label
+    Friend WithEvents classNameLabel As Label
+    Friend WithEvents lessonDefinitionBox As RichTextBox
+    Friend WithEvents lessonReferenceBox As TextBox
+    Friend WithEvents lessonPlaceholderLabel As Label
+    Friend WithEvents backButton As Button
+    Friend WithEvents previousLessonButton As Button
+    Friend WithEvents practiceOutputButton As Button
+    Friend WithEvents nextLessonButton As Button
     Friend WithEvents panelHome As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -325,4 +541,5 @@ Partial Class Form1
     Friend WithEvents AnimationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PolymorphismToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem2 As ToolStripMenuItem
 End Class
