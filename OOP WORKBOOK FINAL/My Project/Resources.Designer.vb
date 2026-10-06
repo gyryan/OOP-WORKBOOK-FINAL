@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property devil() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("devil", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property High_Resolution_Blue_Tech_Background_for_PC___Software_Presentation_Design() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("High-Resolution Blue Tech Background for PC & Software Presentation Design", resourceCulture)
@@ -76,6 +86,16 @@ Namespace My.Resources
         Friend ReadOnly Property NAME() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("NAME", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property priest() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("priest", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

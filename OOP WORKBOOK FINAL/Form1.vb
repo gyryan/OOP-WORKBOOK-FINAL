@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing
 Imports System.Linq
+Imports System.Drawing.Drawing2D
 
 Public Class Form1
     Private currentLessonNavigationIndex As Integer = -1
@@ -540,5 +541,11 @@ Public Class Form1
 
     Private Sub ExitToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem1.Click
 
+    End Sub
+
+    Private Sub AnimationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnimationToolStripMenuItem.Click
+        Using gameForm As New frmPriestsAndDevilsGame()
+            gameForm.ShowDialog(Me)
+        End Using
     End Sub
 End Class

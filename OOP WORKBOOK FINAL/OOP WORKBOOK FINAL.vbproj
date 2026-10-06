@@ -122,6 +122,7 @@
     <Compile Include="frmPolymorphismPractice.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPriestsAndDevilsGame.vb" />
     <Compile Include="frmSelectionRepetitionPractice.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NAME .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\priest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
